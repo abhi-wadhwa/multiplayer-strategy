@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "multiplayer-strategy"
+version = "1.0.0"
+description = "Web-based multiplayer strategy games — Colonel Blotto, Public Goods Game, Prisoner's Dilemma tournament"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "typer>=0.9",
+    "structlog>=23.1",
+    "streamlit>=1.28",
+    "plotly>=5.18",
+    "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "ruff>=0.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--tb=short -q"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
